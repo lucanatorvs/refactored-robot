@@ -1,0 +1,69 @@
+\chapter{Problemen}
+\label{Problemen}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Tijdens het project zijn eer paar problemen opgetreden. Dezen hadden allemaal
+te maken met de extruder en dat daar geen plastic meer uit komt (vast liep).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Smeltend plastic in de extruder}
+\label{s:smeltendplastic}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Een probleem waar al vrij snel tegen aan werd geloopen is dat de extruder vast
+liep door dat het plastic te vroeg smelten, met het gevolg er geen plastic meer uit de nozel kwam.
+Dit gebeurde telkens rond de zelfde tijd na het starten van een print.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Oorzaak}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Dit probleem was het resultaat van warme drive gears (extruder tandwielen).
+Heat creep is een term voor het warmte gradiënt door de metalen onderdelen van
+de extruder. De stappenmotor van de extruder en de heater cartridge van het
+hotend produceren allebei warmte. Deze warmte geleid door de hele extruder
+assemblage en komt dus ook bij de drive gears. Als daardoor het plastic ook
+warm word smelt het in de extruder. En kan het dus niet meer door de nozel
+woorden geperst.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Dubbelvouwend plastic in de extruder}
+\label{s:Dubbelvouwend}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Een probleem tijdens het testen met een PP print wat dat het plastic dubbel
+vouwde in de ruimte tussen de extruder tandwielen en de glijder naar de
+extruder. Dit is dus een ander probleem dan beschreven in hoofdstuk
+\ref{s:smeltendplastic}, dit probleem treed eerder op en zelfs als de kamer
+niet is verwarmd. Dit probleem treden ook op tijdens het testen van PP op een
+normaale printer, echter om een andere reden.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Oorzaak}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Dit komt doordat er genoeg ruimte is tussen de extruder tandwielen en het
+extruder frame dat er filament tussen door past. En omdat PP veel flexibeler is
+dan HDPE, gaat het makkelijk daar tussen zitten.
+
+Dit probleem had een adere oorzaak bij het testen op een standaard ender-3. De
+oorzaak was echter dat de extruder veel meer kracht zou moeten zetten omdat de
+ender-3 een bowden extruder printer is. Uitleg over wat een bowden tube
+extruder is staat in hoofdstuk \ref{ss:Bowden_extruder}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Kamer temperatuur overshoot}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+De temperatuur van de verwarmde kamer schiet door het setpoint heen voordat het
+stabiliseert of oscilleert rond de ingestelde waarden
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Oorzaak}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+De massa van de thermistor is zo hoog dat het lang duurt om in evenwicht te
+komen met de luchttemperatuur. Daarom loopt de gemeenten temperatuur dus
+aanzienlijk achter op de werkelijke temperatuur. De werkelijke temperatuur is
+geverifieerd door een thermokoppel naast de thermistor te hangen.

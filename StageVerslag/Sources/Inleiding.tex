@@ -1,0 +1,133 @@
+\chapter{Inleiding}
+\label{inleiding}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+    \begin{minipage}{0.5\textwidth}
+        \begin{small}
+            Waar de reden tot creatie van dit verslag worden blootgelegd, de
+            opdracht en het probleem worden beschreven en achtergrondinformatie
+            word gegeven.
+        \end{small}
+    \end{minipage}
+    \vspace{0.5cm}
+\end{center}
+
+\noindent De opdracht is om aanstuur elektronica te maken voor een 3D-printer
+die \ac{hdpe} en \ac{pp} moet kunnen printen. Deze printer is ongebruikelijk
+omdat deze een verwarde kamer krijgt die tot \SI{160}{\celsius} moet kunnen
+komen. De hypothese is dat een verwarmde werkruimte van een dusdanig hoge
+temperatuur, de problemen oplost die worden bevonden met het printen van
+\ac{hdpe} en \ac{pp} met een conventionele printer.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Wat is 3D-printen}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+3D-printen is een additieve productie (\ac{am}) methode. Dat betekent dat een
+product word opgebouwd vanaf nul, in tegenstelling tot subtractieve productie
+is er weinig of geen verlies van materiaal.  Een andere vorm van additieve
+productie is bijvoorbeeld spuitgieten, maar hierbij zijn kostbare gietmallen
+nodig. 3D-printen vereist geen grote investering voor elk nieuw ontwerp, en is
+daarom uitermate geschikt om snel prototypen te maken. \cite{ATTARAN2017677}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\ac{fdm} 3D-printen}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Er zijn verschillende vormen van 3D-printen, maar verreweg de meest populaire
+bij hobbyisten en kleinschalige bedrijven is FDM 3D-printen. FDM staat voor
+Fused deposition modeling, hierbij word steeds een laag materiaal op de vorige
+laag neergelegd (depositie) en daar op vast gesmolten (gefuseerd). Door
+herhaaldelijk laagjes op elkaar neer te leggen kan een \ac{3d} object woorden
+opgebouwd. Het plastic word gesmolten in het hotend en word door de extruder
+uit het hotend geperst.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{3D-printer software}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Er is verschillende software en firmware nodig om te kunnen 3d printen. Wat
+voor soorten software dat is staat hier onder beschreven.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{\ac{3d} bestanden}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Software is nodig om een 3d object te ontwerpen, tijdens dit project is
+daarvoor \ac{f360} gebruikt. Ook kunnen bepaalde \ac{3d} objecten woorden
+gedownload van \href{https://www.thingiverse.com}{Thingiverse}. Dit zijn
+meestal \ac{stl} en \ac{3mf} bestanden.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Slicer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Gedurende dit project is de slicer \emph{Prusaslicer} gebruikt, alle settings
+die gebruikt zijn om te slicen zijn op GitHub bijgehouden.  Een slicer is
+software die een \ac{3d} bestand als een \ac{stl} of \ac{3mf}, omzet in een
+hoop \ac{2d} lagen. Elke laag is gebruikelijk rond de \SI{0.2}{\milli\meter}
+hoog. De printer \emph{tekent} deze lagen en stapelt ze op elkaar, zo word een
+\ac{3d} object opgebouwd. In de slicer kan je veel dingen instellen om print
+kwaliteit of print snelheid te verbeteren. Instellingen zoals snelheid,
+temperatuur, flowrate en een hoop meer kun je tweaken voor een beter resultaat,
+deze instellingen zijn meestal printer afhankelijk.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{3D-printer firmware}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Firmware is een specifieke klasse van computersoftware die de controle op laag
+niveau biedt voor de specifieke hardware van een apparaat.  Voor minder
+complexe apparaten (zoals 3D-printers) kan firmware fungeren als het complete
+besturingssysteem van het apparaat.
+
+Een veel gebruiken firmware voor 3D-printers is Marlin en dat is ook waar voor
+is gekozen voor de 3D-printer.  Marlin is een open source firmware voor de
+RepRap-familie van 3D-printers. Het is afgeleid van Sprinter en grbl en werd
+een op zichzelf staand open source project op 12 augustus 2011 met de
+Github-release. Marlin heeft een licentie onder GPLv3 en is gratis voor alle
+toepassingen \cite{Marlin}. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Compiler}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Een compiler word gebruikt om de firmware van de 3D-printer die in \ac{cpp} is
+geschreven, om te zetten naar machinetaal. Machinetaal kan op de microprocessor
+worden uitgevoerd.  Voor het compileren van Marlin is \emph{Auto Build Marlin}
+een goede optie \cite{Auto_Build_Marlin}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Wat zijn \ac{hdpe} en \ac{pp}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ac{hdpe} is een hoge dichtheid variant van \ac{pe}. \ac{pe} is een
+thermoplastisch polymeer dat in een breed scala aan toepassingen wordt
+gebruikt. \ac{hdpe} is dus ook een thermoplast dat kan woorden geëxtrudeerd.\\\
+
+\noindent \ac{pp} is tegenwoordig een van de meest gebruikte plastics. Het is
+een polymeer dat voornamelijk wordt gebruikt voor verpakkingen. \ac{hdpe} is
+een thermoplast dat kan woorden geëxtrudeerd. Het wordt geproduceerd via
+ketengroeipolymerisatie uit het monomeer propyleen.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Waarom \ac{hdpe} en \ac{pp}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ac{hdpe} en \ac{pp} hebben een aantal gunstige eigenschappen die ervoor
+zorgen dat het makkelijk te bewerken is.  Daarom is de meerderheid van de
+gebruikte plastics voor verpakkings-materiaal gemaakt van \ac{hdpe} en \ac{pp}.
+Omdat een grote hoeveelheid van de afvalstroom daarom ook uit \ac{hdpe} en
+\ac{pp} bestaan is het gunstig om dat te kunnen recyclen om mee te 3D-printen.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Bestanden downloaden}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Dit hele project is gewerkt in en is vastgelegd in git. Maar omdat de inhoud
+van het project en verslag intellectueel eigendom is van 3devo, staat dat
+openbaar op GitHub. Voor vragen over de inhoud van het project kun je contact
+opnemen met
+\href{mailto:lucavanstraaten@icloud.com}{lucavanstraaten@icloud.com}

@@ -1,0 +1,165 @@
+\documentclass{mimosis}
+\usepackage{vhistory}
+
+\usepackage{metalogo}
+
+\usepackage[final]{pdfpages}
+
+\usepackage{etoolbox}
+\usepackage[utf8]{inputenc}
+
+\usepackage{tocloft}
+\usepackage[titletoc]{appendix}
+
+\usepackage{graphicx}
+\graphicspath{{Pictures_HD/}}
+
+\usepackage[binary-units=true]{siunitx}
+\DeclareSIUnit\px{px}
+
+% afkortingen en nomenclatur
+
+\usepackage{acro}
+\acsetup{first-style=short}
+\input{Abbrev.tex}
+\input{Nomen.tex}
+
+\setlength{\cftbeforechapskip}{3pt}
+
+\sisetup{%
+  detect-all           = true,
+  detect-family        = true,
+  detect-mode          = true,
+  detect-shape         = true,
+  detect-weight        = true,
+  detect-inline-weight = math,
+}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Hyperlinks & bookmarks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[%
+  colorlinks = true,
+  citecolor  = RoyalBlue,
+  linkcolor  = RoyalBlue,
+  urlcolor   = RoyalBlue,
+  ]{hyperref}
+
+\usepackage{bookmark}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Fonts
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifxetexorluatex
+  \setmainfont{Minion Pro}
+\else
+  \usepackage[lf]{ebgaramond}
+  \usepackage[oldstyle,scale=0.7]{sourcecodepro}
+  \singlespacing
+\fi
+
+\renewcommand{\th}{\textsuperscript{\textup{th}}\xspace}
+
+%pcb Printed circuit board
+%mppt Maximum power point tracking
+%spo2 Peripheral oxygen saturation
+
+\newacronym{PCB}{PCB}{Printed circuit board}
+\newacronym{MPPT}{MPPT}{Maximum power point tracking}
+\newacronym{SPO2}{SPO2}{Peripheral oxygen saturation}
+\newacronym{SMD}{SMD}{Surface-mounted Device}
+\newacronym{USB}{USB}{Universal Serial Bus}
+
+\makeindex
+\makeglossaries
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Incipit
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Eindverslag \textbf{Stage 3devo}}
+\subtitle{Verwarmde behuizing voor het 3D-printen van \ac{hdpe} en \ac{pp}}
+\author{Luca van Straaten (18073611)}
+
+\begin{document}
+
+\frontmatter
+\include{Sources/Titel}
+
+\begin{versionhistory}
+    \vhEntry{V0.1}{08.09.2021}{Luca}{Document aangemaakt}
+    \vhEntry{V0.2}{29.10.2021}{Luca}{Eerste opzet}
+    \vhEntry{V1}{17.11.2021}{Luca}{Eerste oplagen}
+\end{versionhistory}
+
+\include{Sources/Voorwoord}
+% \include{Sources/Samenvatting}
+%\begingroup
+%    \let\clearpage\relax
+%    \glsaddall
+%    \printglossary[type=\acronymtype]
+%    \addcontentsline{toc}{chapter}{Acroniemen}
+%\endgroup
+\newpage
+\tableofcontents
+\newpage
+\phantomsection
+\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures
+
+\printacronyms[include=abbrev,name=Lijst van afkortingen]
+\printacronyms[include=nomencl,name=Lijst van begrippen]
+
+\include{Sources/Inleiding}
+
+\mainmatter
+
+\include{Sources/Analyse_van_het_probleem}
+\include{Sources/Eisen_van_het_project}
+\include{Sources/Problemen}
+\include{Sources/Mogelijke_oplossingen}
+\include{Sources/De_gekozen_oplossing}
+\include{Sources/Ontwerp_van_de_oplossing_en_de_benodigde_onderdelen}
+\include{Sources/Assemblage}
+% \include{Sources/Ondervonden_problemen}
+% \include{Sources/Eindresultaat}
+\include{Sources/Toetsing_eindresultaat_aan_de_hand_van_de_eisen}
+\include{Sources/Conclusie_en_aanbevelingen}
+% \include{Sources/Evaluatie}
+
+% This ensures that the subsequent sections are being included as root
+% items in the bookmark structure of your PDF reader.
+\bookmarksetup{startatroot}
+
+\bibliographystyle{IEEEtran}
+\bibliography{bronnen}
+
+\begin{appendices}
+\appendixpage
+\noappendicestocpagenum
+\addappheadtotoc
+\chapter{Intervisie}
+\includepdf[pages=-,fitpaper,rotateoversize]{Appendices/Intervisie/Intervisie.pdf}
+\chapter{Student over docentbezoek}
+\includepdf[pages=-,fitpaper,rotateoversize]{Appendices/student_over_docentbezoek.pdf}
+\chapter{Bedrijf over student}
+\includepdf[pages=-,fitpaper,rotateoversize]{Appendices/Bedrijf_over_student.pdf}
+\chapter{Student over bedrijf}
+\includepdf[pages=-,fitpaper,rotateoversize]{Appendices/student_over_bedrijf/student_over_bedrijf.pdf}
+\chapter{Verantwoording van de behaalde competenties}
+\includepdf[pages=-,fitpaper,rotateoversize]{Appendices/Verantwoording_behaalde_competenties/competenties.pdf}
+\chapter{korte beschrijving van de bedrijfsorganisatie}
+\includepdf[pages=-,fitpaper,rotateoversize]{Appendices/Bedrijfsorganisatie/organisatie.pdf}
+\chapter{overdracht document}
+\label{overdracht}
+\includepdf[pages=-,fitpaper,rotateoversize]{Appendices/overdracht.pdf}
+\end{appendices}
+
+\backmatter
+\end{document}
