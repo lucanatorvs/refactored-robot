@@ -1,7 +1,7 @@
 ---
 title: Stage werkplan (PvA)
-subtitle: CCS DC Fast charging comunication at EV Europe
-author: Luca van Straaten (10873611)
+subtitle: CCS DC Snel laadden van PEVs bij EV Europe
+author: Luca van Straaten (SN:10873611)
 date: \today{}
 documentclass: scrreprt
 papersize:
@@ -12,7 +12,7 @@ geometry:
 - margin=1in
 fontfamily:
 - charter
-numbersections: true
+numbersections: false
 header-includes:
 - \setlength\parindent{24pt}
 output:
@@ -47,10 +47,10 @@ Volgens de wersite van [EV Europe](https://eveurope.eu/about/):
 
 ## Achtergrond informatie
 
-Het landen van een EV (elektrisch voertuig) gaat in Europa met het CCS
-(Combined Charging System). Dat is een standaard voor het laden van een EV die
-de connector beschrijft, de communicatie tussen de EV en de lader (EVSE) is
-gedefinieerd in ISO 15118. CCS ondersteund zowel AC laden (op een of drie
+Het laden van een EV (elektrisch voertuig) gaat in Europa met het CCS (Combined
+Charging System). Dat is een standaard voor het laden van een EV die de
+connector beschrijft, de communicatie tussen de EV en de lader (EVSE) is
+gedefinieerd in ISO 15118. CCS ondersteunt zowel AC laden (op een of drie
 fasen) als DC laden, DC laden heeft het voordeel dat het laden sneller kan.
 Momenteel gebruikt EV Europe een simpel laadsysteem dat alleen met AC werkt.
 
@@ -96,9 +96,9 @@ voorbehoud en kan gewijzigd worden.
 
 Eerst ga ik onderzoek doen naar wat de exacte eisen en verwachtingen zijn van
 de te ontwerpen elektronica en wat de prioriteiten zijn. Vervolgens ga ik
-onderzoeken waar ik tegen aan kan lopen. Daarna ga ik de printer prepareren en
+onderzoeken waar ik tegen aan kan lopen. Daarna ga ik de test opstelling prepareren en
 mechanisch in orde maken. De volgende stap is het ontwerpen van de elektronica.
-En een prototype hiervan maken. Daarna kan ik dat gaan testen, en de
+En een prototype hiervan maken. Daarna kan ik dat gaan testen, en
 veranderingen doorvoeren naar de uiteindelijk versie van het product. Tijdens
 het gehele traject zal ik mijn bevindingen documenteren in het eindverslag.
 
