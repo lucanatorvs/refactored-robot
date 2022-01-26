@@ -43,13 +43,17 @@ Volgens de wersite van [EV Europe](https://eveurope.eu/about/):
 >EV Europe ontstond de marktleider op het gebied van elektrische mobiliteit en
 >lithium accusystemen volgens een one-stop-shop concept.
 
+Ze zijn een marktleider op het gebied van het ombouwen van benzine en diesel
+auto's naar elektrische auto's. Ze kunnen auto's van klanten ombouwen of de
+onderdelen leveren waarmee klanten dat zelf kunnen doen.
+
 # Wat ga ik doen bij EV Europe?
 
 ## Achtergrond informatie
 
-Het laden van een EV (elektrisch voertuig) gaat in Europa met het CCS (Combined
-Charging System). Dat is een standaard voor het laden van een EV die de
-connector beschrijft, de communicatie tussen de EV en de lader (EVSE) is
+Het laadden van een EV (elektrisch voertuig) gaat in Europa met het CCS
+(Combined Charging System). Dat is een standaard voor het laden van een EV die
+de connector beschrijft, de communicatie tussen de EV en de lader (EVSE) is
 gedefinieerd in ISO 15118. CCS ondersteunt zowel AC laden (op een of drie
 fasen) als DC laden, DC laden heeft het voordeel dat het laden sneller kan.
 Momenteel gebruikt EV Europe een simpel laadsysteem dat alleen met AC werkt.
