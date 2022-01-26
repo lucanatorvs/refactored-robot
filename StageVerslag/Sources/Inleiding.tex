@@ -17,20 +17,21 @@
 maken van de nieuwste technieken op het gebied van elektrische auto's. Zo word
 er vaak door de klanten gevraagd of moderne snufjes kunnen woorden ingebouwd in
 hun auto. Recent was dat de vraag om langs de snelweg aan een snel laad paal te
-kunnen laadden. Deze palen (of \ac{evse}) maken in europa gebruik van het \ac{ccs}
+kunnen laden. Deze palen (of \ac{evse}) maken in europa gebruik van het \ac{ccs}
 protocol \cite{Directive_2014/94/EU}. Dus EV Europe is gaan onderzoeken of het
 gebruik van deze \ac{ccs} snel laad palen een optie is voor de klanten en wat er
 voor nodig is om dit te bereiken.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Achtergrond electrichen auto's}
+\section{Achtergrond elektrische auto's}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Er zijn grofweg twee soorten electrice autos (\ac{ev}), plug-in elektrische auto's en
-hybride auto's. Plug-in elektrische auto's zijn auto's die aleen electrise
-rijden, en hybride auto's zijn auto's die zowel electrich en op
-verbrandingsmotor rijden (er zijn nog meer onnderschijdingen zoals onderandenen
-plug-in hybrid en waterstof autos die niet van toepassing zijn op dit verslag).
+Er zijn grofweg twee soorten elektrische auto's (\ac{ev}), plug-in elektrische
+auto's en hybride auto's. Plug-in elektrische auto's zijn auto's die alleen
+elektrisch rijden, en hybride auto's zijn auto's die zowel elektrisch en op
+verbrandingsmotor rijden (er zijn nog meer onderscheidingen zoals onder anderen
+plug-in hybride en waterstofauto's die niet van toepassing zijn op dit
+verslag).
 
 EV Europe is vooral geïnterneerd in de eerste soort, de plug-in elektrische
 auto's. De plug-in elektrische auto's zijn auto's met een volledig elektrische
@@ -39,35 +40,35 @@ aandrijflijn van deze auto's bestaat uit een accupakket, een motorcontroller,
 en een elektromotor. De overigen mechanische componenten van de aandrijflijn
 zijn vrijwel gelijk aan die van een interne verbrandingsmotor auto.
 
-In de laatset jaaren is de hoeveelhijd electriche autos op de markt hard aan
-het groeien. Tevens de infrastruktuur, zoals (snel)laaders. 
+In de laatste jaren is de hoeveelheid elektrische auto's op de markt hard aan
+het groeien. Bovendien de infrastructuur, zoals (snel)laaders. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Laadden van elektricien auto's}
+\subsection{Laadden van elektrische auto's}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Het laaden van EV's gaat wereldwijd door middel van verschillende standaarden,
+Het laden van EV's gaat wereldwijd door middel van verschillende standaarden,
 maar in europa hebben het \ac{ccs} systeem geadopteerd. Ondanks de andere
-standaarden die nogsteeds hier en daar ondersteund woorden, focusen we ons in
-de verslag volledig op de \ac{ccs} systeem.
+standaarden die nog steeds hier en daar ondersteund woorden, focussen we ons in
+dit verslag volledig op het \ac{ccs} systeem.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{\ac{ccs} laadden}
+\subsection{\ac{ccs} laden}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\ac{ccs} laaden kan met AC en met DC, afhankelijk van de \ac{evse} en de opties
-op de auto kan er AC of DC woorden gelaaden. AC laaden staat wel beschreven in
-de \ac{ccs} standaard, echter word het ac laaden met de type 2 stekker vaak
-niet \ac{ccs} genoemd maar gewoon AC. Er zijn dus twee soorten \ac{ccs}
-laadden: AC en DC.
+\ac{ccs} laden kan met AC en met DC, afhankelijk van de \ac{evse} en de opties
+op de auto kan er AC of DC worden geladen. AC laden staat wel beschreven in de
+\ac{ccs} standaard, echter word het AC laden met de type 2 stekker vaak niet
+\ac{ccs} genoemd maar gewoon AC. Er zijn dus twee soorten \ac{ccs} laden: AC en
+DC.
 
-Er zijn ook twee soorten stekkers (de kant van de \ac{evse}) en twee soorten
-inlest (de kant van de \ac{ev}). de Combo 2 stekker (zie figuur
-\ref{fig:CCS_combo2_outlet}) ondersteund aleen DC laaden, maar de Combo 2 inlet
-(zie figuur \ref{fig:CCS_combo2_inlet}) ondersteund over het algemeen zowel AC
-als DC laad. verder zijn de type 2 stekker (zie figuur
+Er zijn ook twee soorten stekkers (de kant van de \ac{evse} ook wel outlet
+genoemd) en twee soorten inlet's (de kant van de \ac{ev}). De Combo 2 stekker
+(zie figuur \ref{fig:CCS_combo2_outlet}) ondersteund alleen DC laden, maar de
+Combo 2 inlet (zie figuur \ref{fig:CCS_combo2_inlet}) ondersteund over het
+algemeen zowel AC als DC laden. Verder zijn de type 2 stekker (zie figuur
 \ref{fig:AC_type2_inlet_outlet}) en inlet (zie figuur
-\ref{fig:AC_type2_inlet_outlet}) alleen voor AC laaden
+\ref{fig:AC_type2_inlet_outlet}) alleen voor AC laden
 
 \begin{figure}[h]
     \centering
@@ -88,24 +89,25 @@ als DC laad. verder zijn de type 2 stekker (zie figuur
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{AC laadden}
+\subsubsection{AC laden}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\ac{ac} laaden kan ook nog op verschillende manieren en snelheden, het grootste
-verschil is een phase en drie phase, waarbij 3 phase in princiepe drie keer
-zosnel laad als een phase. Deze laadmethode gebruikt een interne laader in de
-auto (\ac{ev}). En de comumicatie tussen de auto en de \ac{evse} is heel simpel
-met een \ac{pwm} signal. Het \ac{pwm} signal word gebruikt om de maximale
-stroom die de \ac{evse} kan leveren te comuniceren aan de \ac{ev}. De \ac{ev}
-geeft dan het signal de \ac{ev} klaar is om te laaden en de \ac{evse} zet dan
-netspanning op de poolen van de type 2 stekker (outlet).
+\ac{ac} laden kan ook nog op verschillende manieren en snelheden, het grootste
+verschil is een fase en drie fasen, waarbij drie fasen in principe drie keer zo
+snel kan laden als een fase. Deze laadmethode gebruikt een interne lader in de
+auto (\ac{ev}). En de communicatie tussen de auto en de \ac{evse} is heel
+simpel met een \ac{pwm} signaal. Het \ac{pwm} signaal word gebruikt om de
+maximale stroom die de \ac{evse} kan leveren te communiceren aan de \ac{ev}. De
+\ac{ev} geeft dan een signaal dat de \ac{ev} klaar is om te laden en de
+\ac{evse} zet dan netspanning (een of drie fasen) op de te poolen van de type 2
+stekker (outlet).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{DC laadden}
+\subsubsection{DC laden}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\ac{dc} laaden word dus CCS laaden genoemd. De \ac{evse} gebruikt de Combo 2
-outlet (stekker) en de \ac{ev} gebruikt de Combo 2 inlet (inlet). de \ac{evse}
-is bij de laaden de laader, en wordt doormiddel van cantactoren in de \ac{ev}
-dircet aan de accupolen aangeslooten. hiermee kan met veel hogere stroom woorde
-gelaaden en daarom word \ac{dc} laaden ook wel snelladen genoemd.
+\ac{dc} laden word dus CCS laden genoemd. De \ac{evse} gebruikt de Combo 2
+outlet (stekker) en de \ac{ev} gebruikt de Combo 2 inlet. De \ac{evse} is bij
+DC laden de lader, en wordt door middel van contactoren in de \ac{ev} direct
+aan de accupolen aangesloten. Hiermee kan met veel hogere stroom worde geladen
+en daarom word \ac{dc} laden ook wel snelladen genoemd.
