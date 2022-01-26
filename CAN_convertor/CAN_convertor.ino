@@ -51,8 +51,8 @@ void loop() {
 
 
     // charge parameters
-    int current = 5;
-    uint16_t ChargeVoltageLimit = 393 * 10;
+    int current = 110;
+    uint16_t ChargeVoltageLimit = 393 * 10; // 393
     uint16_t ChargeCurrentLimit = current * 10;
     uint16_t DischargeVoltageLimit = 307 * 10;
     uint16_t DischargeCurrentLimit = current * 10;
@@ -300,19 +300,57 @@ void loop() {
     }
 
 
-    if ( id == 0x99B50007 ) { // energency states
+    if ( id == 0x99B50007 ) { // energency states of bms
+      
       Serial.println("rx energency states");
       Serial.println(canMsg.data[0], BIN);
       Serial.println(canMsg.data[1], BIN);
       Serial.println(canMsg.data[2], BIN);
       Serial.println(canMsg.data[3], BIN);
-      if ((canMsg.data[0] != 0 | canMsg.data[2] != 0) |  canMsg.data[3] != 0B111) {
+      
+      if ((canMsg.data[0] != 0 | canMsg.data[0] != 0b10000000) & canMsg.data[2] != 0) {
         ohshit = true;
       } else {
         ohshit = false;
       }
       if (ohshit) {
         Serial.println("oh shit");
+      }
+      
+      if (canMsg.data[0] & (1 << 0)) {
+        Serial.print("Under-voltage ");
+      }
+      if (canMsg.data[0] & (1 << 1)) {
+        Serial.print("Over-voltage ");
+      }
+      if (canMsg.data[0] & (1 << 2)) {
+        Serial.print("Discharge_Over-current ");
+      }
+      if (canMsg.data[0] & (1 << 3)) {
+        Serial.print("Charge_Over-current ");
+      }
+      if (canMsg.data[0] & (1 << 4)) {
+        Serial.print("Cell_Module Overheat ");
+      }
+      if (canMsg.data[0] & (1 << 5)) {
+        Serial.print("Leakage ");
+      }
+      if (canMsg.data[0] & (1 << 6)) {
+        Serial.print("No Cell Communication ");
+      }
+      
+      if (canMsg.data[2] & (1 << 3)) {
+        Serial.print("Cell_Overheat ");
+      }
+      if (canMsg.data[2] & (1 << 4)) {
+        Serial.print("No_Current_Sensor ");
+      }
+      if (canMsg.data[2] & (1 << 5)) {
+        Serial.print("Pack_Under-Voltage ");
+      }
+      
+      if (canMsg.data[0] != 0 & canMsg.data[2] != 0) {
+        Serial.println();
       }
     }
 
