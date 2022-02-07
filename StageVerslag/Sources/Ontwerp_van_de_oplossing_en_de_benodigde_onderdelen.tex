@@ -2,125 +2,107 @@
 \label{Ontwerp_van_de_oplossing_en_de_benodigde_onderdelen}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Hardware}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Het mechanisch ontwerp van de printer was grotendeels al gedaan, echter zijn er
-een aantal aanpassingen gedaan, die staan hier beschreven.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Ge-3D-printe oplossingen}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Een aantal problemen zijn opgelost door kleine onderdelen te 3D-printen. hier zijn
-daar een paar voorbeelden van.
+Uit het vooronderzoek is het Zero-EV modem gekozen (Zie hoofdstuk
+\ref{De_gekozen_oplossing}). En er is bepaald dat er een oplossing nodig is om
+dat modem samen te laten werken met het BMS van EMUS. De communicatie van het
+BMS en van het modem is volgens het CAN-protocol. Dus er moet een manier worden
+verzonnen om de juiste CAN berichten naar het modem te sturen.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Voetjes van de printer}
+\section{Can berichten}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-De voetjes van de printer waren te kort, dus daar zijn langere voor
-ontworpen en ge-3D-print. Zie Figuur ~\ref{fig:voetjes} voor een render van
-het \ac{3d} ontwerp.
-
-\begin{figure}[h]
-    \centerline{\includegraphics[width=0.45\textwidth]{voetjes}}
-    \caption{Render van het \ac{3d} ontwerp van de voetjes van de printer}
-    \label{fig:voetjes}
-\end{figure}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Afstandhouder}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-De originele printer is omgebouwd met roestvrijstalen panelen aan alle kanten.
-Om ervoor te zorgen dat er goede thermische isolatie is van de print kamer, is
-het een dubbelwandig ontwerp met glaswol er tussen. De dubbele wanden worden op
-afstand gehouden met ge-3D-printe afstandhouders. Zie Figuur
-~\ref{fig:afstandhouder} voor een render van het \ac{3d} ontwerp van deze
-afstandhouders.
+De CAN-bus is een robuuste standaard waarmee microcontrollers in een auto data
+kunnen uitwisselen. Die data word gestuurd in de vorm van berichten op de CAN
+bus. Zo'n bericht heeft een CAN ID, wat aangeeft wat voor data het is, een
+lengte en de data in het bericht zelf. Na contact te hebben gehad met Zero-EV,
+hebben ze het \ac{dbc} bestand opgestuurd. Dit bestand kan worden gebruikt om
+de CAN berichten te decoderen. Hierin staat informatie als: welk apparaat die
+berichten genereert, voor welken apparaten die berichten bedoeld zijn, welken
+bits en bytes in het CAN bericht welken data bevatten en de schaal en eenheid
+van die data. \cite{DBC_File_Database_Intro}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Haakje}
+\subsection{Welken berichten moeten verstuurd worden}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Om de deur dicht te houden is er een haakje geprint. Zie Figuur
-~\ref{fig:haakje} voor een render van het \ac{3d} ontwerp van het haakje.
-
-\begin{figure}[h]
-    \centering
-    \begin{minipage}{0.45\textwidth}
-        \centerline{\includegraphics[width=0.9\textwidth]{afstandhouder}}
-        \caption{Render van het \ac{3d} ontwerp van de afstandhouder van de printer}
-        \label{fig:afstandhouder}
-    \end{minipage}\hfill
-    \begin{minipage}{0.45\textwidth}
-        \centerline{\includegraphics[width=0.9\textwidth]{haakje}}
-        \caption{Render van het \ac{3d} ontwerp van het haakje van de printer}
-        \label{fig:haakje}
-    \end{minipage}
-\end{figure}
+Voor het doeleinde van het project is dit DBC-bestand gebruikt om de juiste CAN
+berichten te genereren voor het CCS-modem. Door uit dat bestand te herleiden
+welken berichten het CCS-modem verwacht te ontvangen, en wat er in die
+berichten moet staan.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{DIN-rail bevestigingen}
+\subsubsection{Test data}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Op de zijkant van de printer was een DIN-rail bevestigd, hierop werd vervolgens
-alle elektronica bevestigd. In Figuur ~\ref{fig:din1}, ~\ref{fig:din2} en
-~\ref{fig:din3} zijn de montage stukken te zien voor de PCB en de
-stroomtoevoer.
+Initieel tijdens de proof of consept fasen van dit idee stuurden we gewoon test
+data naar het CCS-modem. Dat betekent dat we data stuurden in de CAN berichten,
+zoals de accu spanning, die met de hand waren gemeten. Dit is echter niet hoe
+het uiteindelijke product dient te functioneren. Er moet namelijk naar de CAN
+bus van het BMS worden geluisterd om de juiste data te ontvangen.
 
-\begin{figure}[h]
-    \centerline{\includegraphics[width=0.45\textwidth]{pcb_mount}}
-    \caption{Render van het \ac{3d} ontwerp van de DIN-rail PCB houder}
-    \label{fig:din1}
-\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Uiteindelijke data}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[h]
-    \centering
-    \begin{minipage}{0.45\textwidth}
-        \centerline{\includegraphics[width=0.9\textwidth]{io_switch_mount}}
-        \caption{Render van het \ac{3d} ontwerp van de schakelaar houder op de DIN-rail}
-        \label{fig:din2}
-    \end{minipage}\hfill
-    \begin{minipage}{0.45\textwidth}
-        \centerline{\includegraphics[width=0.9\textwidth]{c14_dinrail}}
-        \caption{Render van het \ac{3d} ontwerp van het haakje van de C-14 houder op de DIN-rail}
-        \label{fig:din3}
-    \end{minipage}
-\end{figure}
-
+De CAN bericht die het BMS verstuurd zijn beschreven in een handleiding van het
+BMS, en toen ontdekt was wat het format daarvan is, kon het BMS worden
+uitgelezen. Deze data kan dan worden vertaal naar CAN-berichten die het CCS
+modem begrijpt.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Electronica}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-De te gebruiken elektronica was grotendeels al vastgesteld voor het project
-begon. Maar er was vrije keuze voor het hoofd board, hiervoor is een
-bigtreetech SKR-2 gekoozen \cite{btt}. Dit board was gekozen omdat deze vrij
-nieuw is, makkelijk te gebruiken, en veel mogelijkheden bied.
+Voor de elektronica is dus een microcontroller nodig die over de CAN-bus
+communiceren. Er is voor een microcontroller gekozen die compatibel is met de
+Arduino \ac{ide}. En daarmee dus met C++ kan worden geprogrammeerd. Hier is
+voor gekozen omdat hiermee makkelijk te werken is er dus meer tijd kan worden
+besteed aan het ontwerpen en schrijven van de firmware, en minder aan het
+instellen en debuggen van de editor/IDE.
+
+Voor de CAN-interface van de microcontroller is een MCP2515 module gekozen
+omdat dezen goed verkrijgbaar en goedkoop zijn en ook deze module goed kan
+communiceren met de CAN-bus en de Arduino. \cite{canbord}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Software}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%]
-
-Onder software word de slicer gezien. Er is gekozen voor prusaslicer, omdat dit
-een veel gebruikte slicer is die veel opties bied en gratis(open source) is.
-
-De settings waarmee is getest zijn beschikbaar gesteld voor het team bij 3devo.
-Zodat zij verder kunnen werken aan de progressie die tijdens de stageperiode is
-verricht. Dit staat gedocumenteerd in de GitHub repo van het project.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Firmware}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Voor de firmware is Marlin gekozen, en deze is geconfigureerd om te werken met
-de hardware (elektronica/stappenmotoren/sensoren) van de printer. Dit staat
-gedocumenteerd in de GitHub repo van het project.
+Deze module communiceert over via de \ac{spi} met de microcontroller. Om de
+communicatie makkelijker en de code overzichtelijker te maken is een
+bibliotheek van autowp gebruikt \cite{autowp} samen met de standaard SPI
+bibliotheek van Arduino gebruikt. Het fijne van deze bibliotheek is dat je de
+bits en bytes van de CAN-berichten helemaal zelf kan manipuleren, om zo de
+gewenste berichten te krijgen. Een kopie van de firmware is te vinden in
+bijlagen \ref{code}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \subsection{Subsection}
+\section{Prototype}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Voordat de uiteindelijke versie is gemaakt, zijn eerst alle onderdelen
+tijdelijk aan elkaar gekopeld in een testopstelling. Pas toen werd
+geconcludeerd dat de hardware van het prototypen werkt, is het in een behuizing
+ingebouwd.
+
+Wel zijn net andere componenten gebruikt, maar die zijn behlaven hun klijnere
+formaat, voor deze doeleinde funktioneel identiek aan het prototype.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Proefopstelling}
+\label{sec:proefopstelling}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Het uiteidelijke product dient in een auto ingeboud en getest te woorden, maar
+omdat het niet handig is om te testen met een voledige auto, is er een
+proefopstelling hebouwd. met alle onderdelen die nodig zijn om CCS werkend te
+krijgen. zie figuur \ref{fig:proefopstelling} voor een afbeelding van de
+proefopstelling.
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=0.45\textwidth]{proefopstelling}
+    \caption{Proefopstellig voor het CCS-modem}
+    \label{fig:proefopstelling}
+\end{figure}

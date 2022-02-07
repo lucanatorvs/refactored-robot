@@ -12,57 +12,82 @@
     \vspace{0.5cm}
 \end{center}
 
-Er zijn tientalle  mogelijkheden te bedenken om een werkend product te
+Er zijn tientallen  mogelijkheden te bedenken om een werkend product te
 leveren, maar veel passen niet binnen de scope van de opdracht. Dus in dit
-hoodfstuk gaan we de haalbaarhijd bekijken voor 2 soorten mogelijkheden,
-een eigen ontwerp voor een modum en controller, of een off the shelf
-modum en controller.
+hoofdstuk gaan we de haalbaarheid bekijken voor 2 soorten mogelijkheden, een
+eigen ontwerp voor een modem en controller, of een off the shelf modem en
+controller.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Zelf ontwerpen of een bestaande oplossing gebruiken}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Om te beginnen aan het project moest eerst woorden beslooten om zelf een
-ontwerp te maaken en van null te beginnen, of om een bestaande oplossing te
-gebruiken.
+Om te beginnen aan het project moest eerst woorden besloten om zelf een ontwerp
+te maken en van null te beginnen, of om een bestaande oplossing te gebruiken.
+Qua bestaande oplossing moet woorden gekeken wat er beschikbaar is, en wat
+Daarnaast nodig is om het werkend te krijgen met de rest van de auto.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{zelfbouw}
+\subsection{Zelfbouw}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
+Een modem kan worden ontwikkeld die met de /ac{evse} kan communiceren. Uit voor
+onderzoek is gebleken dat een powerlijnen ethernet modem kan woorden gebruikt
+als je daar zelf firmware voor wil ontwikkelen. Dan moet daar een \ac{ecu}
+achter zitten die met de state machine voor het laden. En een manier om de
+contractors aan te sturen.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Voordelen}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
+Zelf een modem bouwen is waarschijnlijk de goedkoopste optie. Zowel tijdens de
+RnD, als voor productie.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Naadeelen}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Vanwege het huidige tekort aan chips in de wereld, kan het zijn dat de
+levertijd van de benodigde componenten zo hoog is dat het niet geleverd
+kan woorden binnen de tijd die voor de opdracht staat. 
 
+Er is dus waarschijnlijk veel meer tijd nodig om een modem te ontwikkelen dan
+dat de opdracht kan duren.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Off the shelf}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Er zijn een aantal opties voor een modem op de markt, uit onderzoek door EV
+Europe zelf zijn er twee modems aangeschaft om mee te communiceren. De eerste
+is een \ac{ecu} van Advantics. De tweede is een \ac{ecu} van Zero-EV.
 
+Dus de optie voor een off the shelf modem is dat een van deze twee modems word
+gebruikt, met de benodigde hard en software om ze aan te sturen. Uit nader
+onderzoek moet blijken welk van de twee opties het beste bij de opdracht past.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Voordelen}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
+Veiligheid en makkelijk te gebruiken zijn de grote voordelen van een off the
+shelf modem. Het is ook een goede manier om een modem te ontwikkelen. Het is
+namelijk een hoed punt om te beginnen met een werkend modem en die te reverse
+engineeren.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Naadeelen}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
+Een off the shelf modem is significant duurder dan een eigen ontwerp. Ook is
+het minder makkelijk of niet te configureren/aan te passen naar de wensen van
+EV Europe en de klanten van EV Europe.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{conclusie}
+\section{Conclusie}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Aangezien er een beperkte hoeveelheid tijd is voor de opdracht, is gekozen om
+een bestaand modem te gebruiken. Er moet echter wel nog een keuze gemaakt
+woorden tussen Advantics en Zero-EV.

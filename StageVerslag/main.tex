@@ -115,6 +115,7 @@
 \printacronyms[include=abbrev,name=Lijst van afkortingen]
 \printacronyms[include=nomencl,name=Lijst van begrippen]
 
+\include{Sources/Samenvatting}
 \include{Sources/Inleiding}
 
 \mainmatter
@@ -123,15 +124,15 @@
 \include{Sources/Eisen_van_het_project}
 % \include{Sources/Problemen}
 \include{Sources/Mogelijke_oplossingen}
-% \include{Sources/De_gekozen_oplossing}
-% \include{Sources/Ontwerp_van_de_oplossing_en_de_benodigde_onderdelen}
+\include{Sources/De_gekozen_oplossing}
+\include{Sources/Ontwerp_van_de_oplossing_en_de_benodigde_onderdelen}
 % \include{Sources/Assemblage}
 
 % \include{Sources/Ondervonden_problemen}
-% \include{Sources/Eindresultaat}
+\include{Sources/Eindresultaat}
 
-% \include{Sources/Toetsing_eindresultaat_aan_de_hand_van_de_eisen}
-% \include{Sources/Conclusie_en_aanbevelingen}
+\include{Sources/Toetsing_eindresultaat_aan_de_hand_van_de_eisen}
+\include{Sources/Conclusie_en_aanbevelingen}
 
 % \include{Sources/Evaluatie}
 
@@ -148,19 +149,19 @@
 \addappheadtotoc
 % \chapter{Intervisie}
 % \includepdf[pages=-,fitpaper,rotateoversize]{Appendices/Intervisie/Intervisie.pdf}
-% \chapter{Student over docentbezoek}
-% \includepdf[pages=-,fitpaper,rotateoversize]{Appendices/student_over_docentbezoek.pdf}
-% \chapter{Bedrijf over student}
-% \includepdf[pages=-,fitpaper,rotateoversize]{Appendices/Bedrijf_over_student.pdf}
+\chapter{Student over docentbezoek}
+\includepdf[pages=-,fitpaper,rotateoversize]{Appendices/student_over_docentbezoek.pdf}
+\chapter{Bedrijf over student}
+\includepdf[pages=-,fitpaper,rotateoversize]{Appendices/Bedrijf_over_student.pdf}
 % \chapter{Student over bedrijf}
 % \includepdf[pages=-,fitpaper,rotateoversize]{Appendices/student_over_bedrijf/student_over_bedrijf.pdf}
 % \chapter{Verantwoording van de behaalde competenties}
 % \includepdf[pages=-,fitpaper,rotateoversize]{Appendices/Verantwoording_behaalde_competenties/competenties.pdf}
 % \chapter{korte beschrijving van de bedrijfsorganisatie}
 % \includepdf[pages=-,fitpaper,rotateoversize]{Appendices/Bedrijfsorganisatie/organisatie.pdf}
-% \chapter{overdracht document}
-% \label{overdracht} % dit is een document voor de opdrachtgever
-% \includepdf[pages=-,fitpaper,rotateoversize]{Appendices/overdracht.pdf}
+\chapter{Arduino code}
+\label{code} % dit is een document voor de opdrachtgever
+\includepdf[pages=-,fitpaper,rotateoversize]{Appendices/code/CAN_convertor.ino.pdf}
 \end{appendices}
 
 \backmatter
