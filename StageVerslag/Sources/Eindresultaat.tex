@@ -3,11 +3,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Het eindresultaat is een kleine behuizing met een Arduino Pro Mini, een MPC2515
-module, een DC-DC converter als \ac{psu} en een generieke \ac{usb}-serial
-(alleen nodig voor een Arduino Pro Mini) convertor.
+module, een DC-DC converter (als \ac{psu}) en een generieke \ac{usb}-serial
+convertor (alleen nodig voor een Arduino Pro Mini).
 
 Deze onderdelen zijn gekozen omdat ze makkelijk te verkrijgen en goedkoop
-waren.
+waren (en voor een groot deel op voorraad).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Schema}
@@ -42,10 +42,18 @@ CAN-controller aan kan sturen. En hoe de Arduino gevoed word met de
     \end{minipage}
 \end{figure}
 
+\begin{figure}[]
+    \centering
+    \includegraphics[width=0.7\textwidth]{binnenkant_geanoteerd}
+    \caption{Binnenkant van de behuizing, met een aantal notaties van de verschillende onderdelen}
+    \label{fig:binnenkant_geanoteerd}
+\end{figure}
+
 In figuur \ref{fig:behuizing} is het eindresultaat te zien, een kleine lasdoos
-is gebruikt als behuizing, met aan een kant een wartel als doorvoer van de CAN
-bus en de \si{12\volt} uit de auto en aan de andere kant een panel mount USB
-aansluiting, om de Arduino te kunnen programmeren. In figuur
-\ref{fig:binnenkant} is de binnenkant van de behuizing te zien. Het is best
-krap aan de binnenkant, maar alles past wel omdat er geen gebruik meer word
-gemaakt van headers, maar alle verbindingen zijn direct aan de pcb gesoldeerd.
+is gebruikt als behuizing. De lasdoos heeft aan een kant een wartel als
+doorvoer van de CAN bus en de \si{12\volt} uit de auto en aan de andere kant
+een panel mount USB aansluiting. De USB aansluiting is om de Arduino te kunnen
+programmeren. In figuur \ref{fig:binnenkant} en \ref{fig:binnenkant_geanoteerd} is de binnenkant van de behuizing
+te zien. Het is best krap aan de binnenkant, maar alles past wel omdat er geen
+gebruik meer word gemaakt van headers (zoals in het prototype), maar alle
+verbindingen zijn direct aan de pcb's gesoldeerd.

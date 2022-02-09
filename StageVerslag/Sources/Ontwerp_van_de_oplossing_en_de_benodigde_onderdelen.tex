@@ -18,18 +18,18 @@ bus. Zo'n bericht heeft een CAN ID, wat aangeeft wat voor data het is, een
 lengte en de data in het bericht zelf. Na contact te hebben gehad met Zero-EV,
 hebben ze het \ac{dbc} bestand opgestuurd. Dit bestand kan worden gebruikt om
 de CAN berichten te decoderen. Hierin staat informatie als: welk apparaat die
-berichten genereert, voor welken apparaten die berichten bedoeld zijn, welken
-bits en bytes in het CAN bericht welken data bevatten en de schaal en eenheid
+berichten genereert, voor welke apparaten die berichten bedoeld zijn, welke
+bits en bytes in het CAN bericht welke data bevatten en de schaal en eenheid
 van die data. \cite{DBC_File_Database_Intro}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Welken berichten moeten verstuurd worden}
+\subsection{Welke berichten moeten verstuurd worden}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Voor het doeleinde van het project is dit DBC-bestand gebruikt om de juiste CAN
 berichten te genereren voor het CCS-modem. Door uit dat bestand te herleiden
-welken berichten het CCS-modem verwacht te ontvangen, en wat er in die
-berichten moet staan.
+welke berichten het CCS-modem verwacht te ontvangen, en wat er in die berichten
+moet staan.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Test data}
@@ -37,7 +37,7 @@ berichten moet staan.
 
 Initieel tijdens de proof of consept fasen van dit idee stuurden we gewoon test
 data naar het CCS-modem. Dat betekent dat we data stuurden in de CAN berichten,
-zoals de accu spanning, die met de hand waren gemeten. Dit is echter niet hoe
+zoals de accuspanning, die met de hand waren gemeten. Dit is echter niet hoe
 het uiteindelijke product dient te functioneren. Er moet namelijk naar de CAN
 bus van het BMS worden geluisterd om de juiste data te ontvangen.
 
@@ -47,14 +47,14 @@ bus van het BMS worden geluisterd om de juiste data te ontvangen.
 
 De CAN bericht die het BMS verstuurd zijn beschreven in een handleiding van het
 BMS, en toen ontdekt was wat het format daarvan is, kon het BMS worden
-uitgelezen. Deze data kan dan worden vertaal naar CAN-berichten die het CCS
+uitgelezen. Deze data kan dan worden vertaald naar CAN-berichten die het CCS
 modem begrijpt.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Electronica}
+\section{Elektronica}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Voor de elektronica is dus een microcontroller nodig die over de CAN-bus
+Voor de elektronica is dus een microcontroller nodig die over de CAN-bus kan
 communiceren. Er is voor een microcontroller gekozen die compatibel is met de
 Arduino \ac{ide}. En daarmee dus met C++ kan worden geprogrammeerd. Hier is
 voor gekozen omdat hiermee makkelijk te werken is er dus meer tijd kan worden
@@ -62,7 +62,7 @@ besteed aan het ontwerpen en schrijven van de firmware, en minder aan het
 instellen en debuggen van de editor/IDE.
 
 Voor de CAN-interface van de microcontroller is een MCP2515 module gekozen
-omdat dezen goed verkrijgbaar en goedkoop zijn en ook deze module goed kan
+omdat deze goed verkrijgbaar en goedkoop zijn en ook deze module goed kan
 communiceren met de CAN-bus en de Arduino. \cite{canbord}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -71,8 +71,8 @@ communiceren met de CAN-bus en de Arduino. \cite{canbord}
 
 Deze module communiceert over via de \ac{spi} met de microcontroller. Om de
 communicatie makkelijker en de code overzichtelijker te maken is een
-bibliotheek van autowp gebruikt \cite{autowp} samen met de standaard SPI
-bibliotheek van Arduino gebruikt. Het fijne van deze bibliotheek is dat je de
+bibliotheek van ``Autowp'' \cite{autowp} gebruikt samen met de standaard SPI
+bibliotheek van Arduino. Het fijne van deze bibliotheek is dat je de
 bits en bytes van de CAN-berichten helemaal zelf kan manipuleren, om zo de
 gewenste berichten te krijgen. Een kopie van de firmware is te vinden in
 bijlagen \ref{code}.
@@ -83,21 +83,21 @@ bijlagen \ref{code}.
 
 Voordat de uiteindelijke versie is gemaakt, zijn eerst alle onderdelen
 tijdelijk aan elkaar gekopeld in een testopstelling. Pas toen werd
-geconcludeerd dat de hardware van het prototypen werkt, is het in een behuizing
+geconcludeerd dat de hardware van het prototype werkt, is het in een behuizing
 ingebouwd.
 
-Wel zijn net andere componenten gebruikt, maar die zijn behlaven hun klijnere
-formaat, voor deze doeleinde funktioneel identiek aan het prototype.
+Wel zijn net andere componenten gebruikt, maar die zijn behlave hun kleinere
+formaat, voor deze doeleinde functioneel identiek aan het prototype.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Proefopstelling}
 \label{sec:proefopstelling}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Het uiteidelijke product dient in een auto ingeboud en getest te worden, maar
-omdat het niet handig is om te testen met een voledige auto, is er een
-proefopstelling hebouwd. met alle onderdelen die nodig zijn om CCS werkend te
-krijgen. zie figuur \ref{fig:proefopstelling} voor een afbeelding van de
+Het uiteidelijke product dient in een auto ingebouwd en getest te worden, maar
+omdat het niet handig is om te testen met een volledige auto, is er een
+proefopstelling gebouwd. Met alle onderdelen die nodig zijn om CCS werkend te
+krijgen. Zie figuur \ref{fig:proefopstelling} voor een afbeelding van de
 proefopstelling.
 
 \begin{figure}[]
